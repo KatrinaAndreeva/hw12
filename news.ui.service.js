@@ -13,7 +13,12 @@ class NewsUI {
         // console.timeEnd();
         this.newsContainer.insertAdjacentHTML("afterbegin", template);
     }
-
+    noneArticle(article){
+        // console.time();
+        const template = NewsUI.generateNoneTemplate(article);
+        // console.timeEnd();
+        this.newsContainer.insertAdjacentHTML("afterbegin", template);
+    }
 
     clearContainer() {
         let first = this.newsContainer.firstElementChild;
@@ -27,6 +32,15 @@ class NewsUI {
      * 
      * @param {Object} article 
      */
+    static generateNoneTemplate(article) {
+        return `
+        <div class="col nonetext s12 m6">
+            <div class="none">
+                <p>${article || ''}</p>
+            </div>
+        </div>
+        `;
+    }
     static generateArticleTemplate(article) {
         return `
         <div class="col s12 m6">
