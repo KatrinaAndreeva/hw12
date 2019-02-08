@@ -1,19 +1,19 @@
 const searchMatches = new Search();
 const uiService2 = new NewsUI();
-const searchSelect = form['search'];
-const inputSearch = searchSelect.value;
+const inputSearch = form['search'];
+
 
 function onInput(event) {
 
-    console.log(searchSelect.value);
+    console.log(inputSearch.value);
     // if (inputSearch.length < 4) return console.error('Please enter more than 3 letters');
 
 
-    searchMatches.everything(search, (response) => {
+    searchMatches.everything(inputSearch, (response) => {
         const { totalResults, articles } = response;
 
         console.log(`Total results ${totalResults}`);
-        console.log(articles);
+        // console.log(articles);
 
         uiService2.clearContainer();
 
@@ -27,4 +27,4 @@ function everything(search, callback) {
 }
 
 
-searchSelect.addEventListener('keyup', onInput);
+inputSearch.addEventListener('keyup', onInput);

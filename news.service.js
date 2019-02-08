@@ -8,7 +8,7 @@ class NewsService {
 }
 
 class Search {
-    everything(search, callback) {
-        httpClient2.get(`${ENV.apiUrl}/everything?q=${inputSearch}`, callback);
+    everything(inputSearch, callback) {
+        httpClient2.get(`${ENV.apiUrl}/everything?q=${inputSearch.value}`, callback);
     }
 }
