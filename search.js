@@ -1,36 +1,30 @@
-const search = new Search();
+const searchMatches = new Search();
+const uiService2 = new NewsUI();
 const searchSelect = form['search'];
-
-function getNewsBySearch() {
-    let msg = document.getElementById('search').value;
-    if (msg.length < 4) return console.error('Please enter more than 3 letters');
-    // console.log(msg);
-
-    let req = new XMLHttpRequest();
-    req.onreadystatechange = function() {
-        if (req.readyState == 4) {
-            document.querySelector('.news-wrap .row').innerHTML = req.responseText;
-        }
-    }
-
-}
+const inputSearch = searchSelect.value;
 
 function onInput(event) {
-    const input = searchSelect.value;
+
+    console.log(searchSelect.value);
+    // if (inputSearch.length < 4) return console.error('Please enter more than 3 letters');
 
 
-    search.everything(search, (response) => {
+    searchMatches.everything(search, (response) => {
         const { totalResults, articles } = response;
 
         console.log(`Total results ${totalResults}`);
         console.log(articles);
 
-        uiService.clearContainer();
+        uiService2.clearContainer();
 
-        articles.forEach((article) => uiService.addArticle(article));
+        articles.forEach((article) => uiService2.addArticle(article));
     });
 }
 
+
+function everything(search, callback) {
+    searchMatches.everything(search, callback);
+}
 
 
 searchSelect.addEventListener('keyup', onInput);

@@ -1,4 +1,5 @@
 const httpClient = new HttpClient();
+const httpClient2 = new HttpClient();
 
 class NewsService {
     getTopHeadlinesNews(category = ENV.category, country = ENV.country, callback) {
@@ -8,6 +9,6 @@ class NewsService {
 
 class Search {
     everything(search, callback) {
-        httpClient.get(`${ENV.apiUrl}/everything?q=${search}`, callback);
+        httpClient2.get(`${ENV.apiUrl}/everything?q=${inputSearch}`, callback);
     }
 }
