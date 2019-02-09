@@ -1,6 +1,5 @@
 const searchMatches = new Search();
 const uiServiceForSearch = new NewsUI();
-//const inputSearch = form['search'].value;
 
 function onInput(event) { //alert('1111');
     let inputSearch = form['search'].value;
@@ -17,9 +16,7 @@ function onInput(event) { //alert('1111');
             uiServiceForSearch.noneArticle('News are not found!');
         }
         else if (totalResults > 0) {
-            //alert(totalResults);
             console.log(`Total results ${totalResults}`);
-            //console.log(articles);
             articles.forEach((article) => uiServiceForSearch.addArticle(article));
         }
     });
